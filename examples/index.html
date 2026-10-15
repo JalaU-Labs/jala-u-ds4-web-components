@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jala-u-ds4-web-components — examples</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 2rem;
+        font-family: var(--jc-font-family-base);
+        background-color: var(--jc-color-bg-subtle);
+        color: var(--jc-color-text-primary);
+        line-height: var(--jc-line-height-normal);
+      }
+
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+      }
+
+      header h1 {
+        margin: 0 0 0.5rem;
+        font-size: var(--jc-font-size-2xl);
+      }
+
+      header p {
+        margin: 0;
+        color: var(--jc-color-text-secondary);
+      }
+
+      section h2 {
+        margin: 0 0 1rem;
+        font-size: var(--jc-font-size-xl);
+        font-weight: var(--jc-font-weight-semibold);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1rem;
+      }
+
+      .tooltip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .demo-button {
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--jc-color-border-default);
+        border-radius: var(--jc-radius-md);
+        background-color: var(--jc-color-bg-surface);
+        color: var(--jc-color-text-primary);
+        font: inherit;
+        cursor: pointer;
+        transition: background-color var(--jc-duration-base) var(--jc-easing-standard);
+      }
+
+      .demo-button:hover {
+        background-color: var(--jc-color-bg-muted);
+      }
+
+      .demo-button:focus-visible {
+        outline: 2px solid var(--jc-color-accent-focus);
+        outline-offset: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>jala-u-ds4-web-components</h1>
+        <p>Interactive demo of the Card and Tooltip components.</p>
+      </header>
+
+      <section id="cards">
+        <h2>Cards</h2>
+        <div class="grid" id="cards-container"></div>
+      </section>
+
+      <section id="tooltips">
+        <h2>Tooltips</h2>
+        <div class="tooltip-row" id="tooltips-container"></div>
+      </section>
+    </main>
+
+    <script type="module">
+      import { Card, Tooltip } from '../src/index.js';
+
+      const cardsContainer = document.querySelector('#cards-container');
+      const tooltipsContainer = document.querySelector('#tooltips-container');
+
+      /* -----------------------------------------------------------------
+       * Cards
+       * --------------------------------------------------------------- */
+
+      const dismissibleCard = new Card({
+        title: 'Elevated card',
+        subtitle: 'With actions',
+        body: 'This card can be removed from the DOM using its Dismiss button.',
+        variant: 'elevated',
+        actions: [
+          {
+            label: 'Dismiss',
+            onClick: () => dismissibleCard.destroy(),
+          },
+          {
+            label: 'Primary',
+            variant: 'primary',
+            onClick: () => window.alert('Primary action triggered.'),
+          },
+        ],
+      });
+
+      const cards = [
+        new Card({
+          title: 'Default card',
+          subtitle: 'Variant: default',
+          body: 'A card with a subtle border and the default surface background.',
+        }),
+        new Card({
+          title: 'Outlined card',
+          subtitle: 'Variant: outlined',
+          body: 'A card with a stronger border and a transparent background.',
+          variant: 'outlined',
+        }),
+        dismissibleCard,
+      ];
+
+      for (const card of cards) {
+        cardsContainer.appendChild(card.render());
+      }
+
+      /* -----------------------------------------------------------------
+       * Tooltips
+       * --------------------------------------------------------------- */
+
+      const positions = [
+        { label: 'Hover top', position: 'top' },
+        { label: 'Hover right', position: 'right' },
+        { label: 'Hover bottom', position: 'bottom' },
+        { label: 'Hover left', position: 'left' },
+      ];
+
+      for (const { label, position } of positions) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'demo-button';
+        button.textContent = label;
+
+        tooltipsContainer.appendChild(button);
+
+        const tooltip = new Tooltip({
+          text: `Tooltip positioned on the ${position}.`,
+          position,
+        });
+        tooltip.attach(button);
+      }
+    </script>
+  </body>
+</html>
