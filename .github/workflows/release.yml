@@ -36,13 +36,13 @@ jobs:
       - name: Check if version is already published
         id: version_check
         run: |
-          if npm view "${{ github.event.repository.name }}@${GITHUB_REF_NAME#v}" version 2>/dev/null; then
+          PKG_NAME=$(node -p "require('./package.json').name")
+          PKG_VERSION="${GITHUB_REF_NAME#v}"
+          if npm view "${PKG_NAME}@${PKG_VERSION}" version 2>/dev/null; then
             echo "published=true" >> "$GITHUB_OUTPUT"
           else
             echo "published=false" >> "$GITHUB_OUTPUT"
           fi
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish package to npm
         if: steps.version_check.outputs.published == 'false'
