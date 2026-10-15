@@ -79,10 +79,7 @@ tooltip.attach(document.querySelector('#help-button'));
 ### UMD / browser
 
 ```html
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/jala-u-ds4-web-components/dist/style.css"
-/>
+<link rel="stylesheet" href="https://unpkg.com/jala-u-ds4-web-components/dist/style.css" />
 
 <script src="https://unpkg.com/jala-u-ds4-web-components/dist/index.umd.js"></script>
 <script>
@@ -108,15 +105,15 @@ Full API documentation is available in the JSDoc comments inside each component 
 
 Summary:
 
-| Class | Method | Description |
-| --- | --- | --- |
-| `Card` | `constructor(options)` | Creates a card instance with the provided options. |
-| `Card` | `render()` | Returns the card as an `HTMLElement`. |
-| `Card` | `destroy()` | Removes listeners and detaches the element. |
+| Class     | Method                 | Description                                           |
+| --------- | ---------------------- | ----------------------------------------------------- |
+| `Card`    | `constructor(options)` | Creates a card instance with the provided options.    |
+| `Card`    | `render()`             | Returns the card as an `HTMLElement`.                 |
+| `Card`    | `destroy()`            | Removes listeners and detaches the element.           |
 | `Tooltip` | `constructor(options)` | Creates a tooltip instance with the provided options. |
-| `Tooltip` | `attach(target)` | Binds the tooltip to a target element. |
-| `Tooltip` | `show()` / `hide()` | Shows or hides the tooltip programmatically. |
-| `Tooltip` | `destroy()` | Removes listeners and detaches the tooltip. |
+| `Tooltip` | `attach(target)`       | Binds the tooltip to a target element.                |
+| `Tooltip` | `show()` / `hide()`    | Shows or hides the tooltip programmatically.          |
+| `Tooltip` | `destroy()`            | Removes listeners and detaches the tooltip.           |
 
 ## Project structure
 
@@ -178,17 +175,17 @@ make install
 
 The project is driven by a `Makefile` that wraps the npm scripts. Run `make` with no arguments to list every target.
 
-| Command | Description |
-| --- | --- |
-| `make install` | Install dependencies with `npm ci`. |
-| `make dev` | Start the Vite development server. |
-| `make test` | Run the unit test suite once. |
-| `make test-watch` | Run the unit test suite in watch mode. |
-| `make lint` | Run ESLint on the source tree. |
-| `make format` | Run Prettier in write mode. |
-| `make build` | Produce the ESM and UMD bundles in `dist/`. |
-| `make clean` | Remove `dist/`, `coverage/`, and `node_modules/`. |
-| `make publish-dry` | Simulate `npm publish` without uploading. |
+| Command            | Description                                       |
+| ------------------ | ------------------------------------------------- |
+| `make install`     | Install dependencies with `npm ci`.               |
+| `make dev`         | Start the Vite development server.                |
+| `make test`        | Run the unit test suite once.                     |
+| `make test-watch`  | Run the unit test suite in watch mode.            |
+| `make lint`        | Run ESLint on the source tree.                    |
+| `make format`      | Run Prettier in write mode.                       |
+| `make build`       | Produce the ESM and UMD bundles in `dist/`.       |
+| `make clean`       | Remove `dist/`, `coverage/`, and `node_modules/`. |
+| `make publish-dry` | Simulate `npm publish` without uploading.         |
 
 ### Docker
 
