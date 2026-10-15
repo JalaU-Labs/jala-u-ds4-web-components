@@ -33,7 +33,19 @@ jobs:
       - name: Run CI pipeline
         run: make ci
 
+      - name: Check if version is already published
+        id: version_check
+        run: |
+          if npm view "${{ github.event.repository.name }}@${GITHUB_REF_NAME#v}" version 2>/dev/null; then
+            echo "published=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "published=false" >> "$GITHUB_OUTPUT"
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Publish package to npm
+        if: steps.version_check.outputs.published == 'false'
         run: npm publish --provenance --access public
 
       - name: Create GitHub Release
