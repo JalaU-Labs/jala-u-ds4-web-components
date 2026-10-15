@@ -1,10 +1,6 @@
 /**
  * Public entry point for @jalau-labs/jala-u-ds4-web-components.
  *
- * Component exports are added here as they are implemented:
- *   - Card    (src/components/card/card.js)
- *   - Tooltip (src/components/tooltip/tooltip.js)
- *
  * Consumers can import the package as ESM:
  *
  *   import { Card, Tooltip } from '@jalau-labs/jala-u-ds4-web-components';
@@ -20,4 +16,4 @@
 
 import './styles/tokens.css';
 
-export {};
+export { Card } from './components/card/card.js';

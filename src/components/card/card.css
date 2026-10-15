@@ -1,0 +1,130 @@
+/**
+ * Card styles.
+ *
+ * All values are pulled from design tokens defined in src/styles/tokens.css.
+ * Do not hard-code colors, spacing, or radii here.
+ */
+
+.jc-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--jc-space-4);
+  padding: var(--jc-card-padding);
+  border-radius: var(--jc-card-radius);
+  background-color: var(--jc-color-bg-surface);
+  color: var(--jc-color-text-primary);
+  font-family: var(--jc-font-family-base);
+  font-size: var(--jc-font-size-md);
+  line-height: var(--jc-line-height-normal);
+  box-sizing: border-box;
+}
+
+.jc-card *,
+.jc-card *::before,
+.jc-card *::after {
+  box-sizing: inherit;
+}
+
+/* Variants -------------------------------------------------------------- */
+
+.jc-card--default {
+  border: var(--jc-border-width-thin) solid var(--jc-color-border-subtle);
+}
+
+.jc-card--outlined {
+  border: var(--jc-border-width-medium) solid var(--jc-color-border-default);
+  background-color: transparent;
+}
+
+.jc-card--elevated {
+  border: none;
+  box-shadow: var(--jc-card-shadow-elevated);
+}
+
+/* Header ---------------------------------------------------------------- */
+
+.jc-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--jc-space-1);
+}
+
+.jc-card__title {
+  margin: 0;
+  font-size: var(--jc-font-size-xl);
+  font-weight: var(--jc-font-weight-semibold);
+  line-height: var(--jc-line-height-tight);
+  color: var(--jc-color-text-primary);
+}
+
+.jc-card__subtitle {
+  margin: 0;
+  font-size: var(--jc-font-size-sm);
+  color: var(--jc-color-text-secondary);
+}
+
+/* Body ------------------------------------------------------------------ */
+
+.jc-card__body {
+  font-size: var(--jc-font-size-md);
+  color: var(--jc-color-text-primary);
+}
+
+/* Footer ---------------------------------------------------------------- */
+
+.jc-card__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: var(--jc-space-2);
+  margin-top: var(--jc-space-2);
+}
+
+/* Actions --------------------------------------------------------------- */
+
+.jc-card__action {
+  appearance: none;
+  border: var(--jc-border-width-thin) solid transparent;
+  border-radius: var(--jc-radius-md);
+  padding: var(--jc-space-2) var(--jc-space-4);
+  font-family: inherit;
+  font-size: var(--jc-font-size-sm);
+  font-weight: var(--jc-font-weight-medium);
+  cursor: pointer;
+  transition:
+    background-color var(--jc-duration-base) var(--jc-easing-standard),
+    color var(--jc-duration-base) var(--jc-easing-standard),
+    border-color var(--jc-duration-base) var(--jc-easing-standard);
+}
+
+.jc-card__action:focus-visible {
+  outline: 2px solid var(--jc-color-accent-focus);
+  outline-offset: 2px;
+}
+
+.jc-card__action--primary {
+  background-color: var(--jc-color-accent-default);
+  color: var(--jc-color-text-inverse);
+}
+
+.jc-card__action--primary:hover {
+  background-color: var(--jc-color-accent-hover);
+}
+
+.jc-card__action--secondary {
+  background-color: transparent;
+  color: var(--jc-color-accent-default);
+  border-color: var(--jc-color-border-default);
+}
+
+.jc-card__action--secondary:hover {
+  background-color: var(--jc-color-bg-muted);
+}
+
+/* Dark mode adjustments ------------------------------------------------- */
+
+@media (prefers-color-scheme: dark) {
+  .jc-card--outlined {
+    background-color: transparent;
+  }
+}
