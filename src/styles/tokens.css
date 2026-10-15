@@ -1,0 +1,216 @@
+/**
+ * Design tokens for jala-u-ds4-web-components.
+ *
+ * Two layers:
+ *   1. Primitive tokens: raw palette and scales (do not consume directly).
+ *   2. Semantic tokens: meaningful aliases that components consume.
+ *
+ * All tokens are exposed with low specificity via :where(:root) so that
+ * consumers can override them without !important or specificity wars.
+ */
+
+:where(:root) {
+  /* ---------------------------------------------------------------------
+   * Primitive: color palette
+   * ------------------------------------------------------------------- */
+
+  --jc-color-blue-50: #eff6ff;
+  --jc-color-blue-100: #dbeafe;
+  --jc-color-blue-200: #bfdbfe;
+  --jc-color-blue-300: #93c5fd;
+  --jc-color-blue-400: #60a5fa;
+  --jc-color-blue-500: #3b82f6;
+  --jc-color-blue-600: #2563eb;
+  --jc-color-blue-700: #1d4ed8;
+  --jc-color-blue-800: #1e40af;
+  --jc-color-blue-900: #1e3a8a;
+
+  --jc-color-gray-50: #f9fafb;
+  --jc-color-gray-100: #f3f4f6;
+  --jc-color-gray-200: #e5e7eb;
+  --jc-color-gray-300: #d1d5db;
+  --jc-color-gray-400: #9ca3af;
+  --jc-color-gray-500: #6b7280;
+  --jc-color-gray-600: #4b5563;
+  --jc-color-gray-700: #374151;
+  --jc-color-gray-800: #1f2937;
+  --jc-color-gray-900: #111827;
+
+  --jc-color-green-500: #22c55e;
+  --jc-color-green-600: #16a34a;
+
+  --jc-color-amber-500: #f59e0b;
+  --jc-color-amber-600: #d97706;
+
+  --jc-color-red-500: #ef4444;
+  --jc-color-red-600: #dc2626;
+
+  --jc-color-white: #ffffff;
+  --jc-color-black: #000000;
+
+  /* ---------------------------------------------------------------------
+   * Primitive: typography
+   * ------------------------------------------------------------------- */
+
+  --jc-font-family-base:
+    system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --jc-font-family-mono:
+    ui-monospace, 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', monospace;
+
+  --jc-font-size-xs: 0.75rem; /* 12px */
+  --jc-font-size-sm: 0.875rem; /* 14px */
+  --jc-font-size-md: 1rem; /* 16px */
+  --jc-font-size-lg: 1.125rem; /* 18px */
+  --jc-font-size-xl: 1.25rem; /* 20px */
+  --jc-font-size-2xl: 1.5rem; /* 24px */
+  --jc-font-size-3xl: 1.875rem; /* 30px */
+
+  --jc-font-weight-regular: 400;
+  --jc-font-weight-medium: 500;
+  --jc-font-weight-semibold: 600;
+  --jc-font-weight-bold: 700;
+
+  --jc-line-height-tight: 1.25;
+  --jc-line-height-normal: 1.5;
+  --jc-line-height-relaxed: 1.75;
+
+  /* ---------------------------------------------------------------------
+   * Primitive: spacing scale (4px base)
+   * ------------------------------------------------------------------- */
+
+  --jc-space-0: 0;
+  --jc-space-1: 0.25rem; /* 4px */
+  --jc-space-2: 0.5rem; /* 8px */
+  --jc-space-3: 0.75rem; /* 12px */
+  --jc-space-4: 1rem; /* 16px */
+  --jc-space-5: 1.25rem; /* 20px */
+  --jc-space-6: 1.5rem; /* 24px */
+  --jc-space-8: 2rem; /* 32px */
+  --jc-space-10: 2.5rem; /* 40px */
+  --jc-space-12: 3rem; /* 48px */
+
+  /* ---------------------------------------------------------------------
+   * Primitive: border radius
+   * ------------------------------------------------------------------- */
+
+  --jc-radius-none: 0;
+  --jc-radius-sm: 2px;
+  --jc-radius-md: 4px;
+  --jc-radius-lg: 8px;
+  --jc-radius-xl: 12px;
+  --jc-radius-full: 9999px;
+
+  /* ---------------------------------------------------------------------
+   * Primitive: border width
+   * ------------------------------------------------------------------- */
+
+  --jc-border-width-thin: 1px;
+  --jc-border-width-medium: 2px;
+
+  /* ---------------------------------------------------------------------
+   * Primitive: shadows
+   * ------------------------------------------------------------------- */
+
+  --jc-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --jc-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --jc-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* ---------------------------------------------------------------------
+   * Primitive: transitions
+   * ------------------------------------------------------------------- */
+
+  --jc-duration-fast: 100ms;
+  --jc-duration-base: 150ms;
+  --jc-duration-slow: 300ms;
+  --jc-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---------------------------------------------------------------------
+   * Primitive: z-index layers
+   * ------------------------------------------------------------------- */
+
+  --jc-z-base: 1;
+  --jc-z-dropdown: 1000;
+  --jc-z-tooltip: 1100;
+  --jc-z-modal: 1200;
+
+  /* ---------------------------------------------------------------------
+   * Semantic: surfaces
+   * ------------------------------------------------------------------- */
+
+  --jc-color-bg-surface: var(--jc-color-white);
+  --jc-color-bg-subtle: var(--jc-color-gray-50);
+  --jc-color-bg-muted: var(--jc-color-gray-100);
+
+  /* ---------------------------------------------------------------------
+   * Semantic: text
+   * ------------------------------------------------------------------- */
+
+  --jc-color-text-primary: var(--jc-color-gray-900);
+  --jc-color-text-secondary: var(--jc-color-gray-600);
+  --jc-color-text-muted: var(--jc-color-gray-400);
+  --jc-color-text-inverse: var(--jc-color-white);
+  --jc-color-text-link: var(--jc-color-blue-600);
+
+  /* ---------------------------------------------------------------------
+   * Semantic: borders
+   * ------------------------------------------------------------------- */
+
+  --jc-color-border-subtle: var(--jc-color-gray-200);
+  --jc-color-border-default: var(--jc-color-gray-300);
+  --jc-color-border-strong: var(--jc-color-gray-400);
+
+  /* ---------------------------------------------------------------------
+   * Semantic: feedback
+   * ------------------------------------------------------------------- */
+
+  --jc-color-feedback-success: var(--jc-color-green-600);
+  --jc-color-feedback-warning: var(--jc-color-amber-600);
+  --jc-color-feedback-error: var(--jc-color-red-600);
+  --jc-color-feedback-info: var(--jc-color-blue-600);
+
+  /* ---------------------------------------------------------------------
+   * Semantic: interactive
+   * ------------------------------------------------------------------- */
+
+  --jc-color-accent-default: var(--jc-color-blue-600);
+  --jc-color-accent-hover: var(--jc-color-blue-700);
+  --jc-color-accent-focus: var(--jc-color-blue-500);
+
+  /* ---------------------------------------------------------------------
+   * Semantic: component defaults
+   * ------------------------------------------------------------------- */
+
+  --jc-card-padding: var(--jc-space-6);
+  --jc-card-radius: var(--jc-radius-lg);
+  --jc-card-shadow: var(--jc-shadow-sm);
+  --jc-card-shadow-elevated: var(--jc-shadow-md);
+
+  --jc-tooltip-padding-y: var(--jc-space-2);
+  --jc-tooltip-padding-x: var(--jc-space-3);
+  --jc-tooltip-radius: var(--jc-radius-md);
+  --jc-tooltip-gap: var(--jc-space-2);
+  --jc-tooltip-arrow-size: 6px;
+  --jc-tooltip-max-width: 240px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :where(:root) {
+    --jc-color-bg-surface: var(--jc-color-gray-800);
+    --jc-color-bg-subtle: var(--jc-color-gray-900);
+    --jc-color-bg-muted: var(--jc-color-gray-700);
+
+    --jc-color-text-primary: var(--jc-color-gray-50);
+    --jc-color-text-secondary: var(--jc-color-gray-300);
+    --jc-color-text-muted: var(--jc-color-gray-500);
+    --jc-color-text-inverse: var(--jc-color-gray-900);
+    --jc-color-text-link: var(--jc-color-blue-400);
+
+    --jc-color-border-subtle: var(--jc-color-gray-700);
+    --jc-color-border-default: var(--jc-color-gray-600);
+    --jc-color-border-strong: var(--jc-color-gray-500);
+
+    --jc-color-accent-default: var(--jc-color-blue-500);
+    --jc-color-accent-hover: var(--jc-color-blue-400);
+    --jc-color-accent-focus: var(--jc-color-blue-300);
+  }
+}
