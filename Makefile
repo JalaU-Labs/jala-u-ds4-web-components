@@ -109,6 +109,30 @@ reset: clean-all install ## Reinstall the project from scratch
 ci: lint format-check test build ## Run the full CI pipeline locally
 
 # ---------------------------------------------------------------------------
+# Docker
+# ---------------------------------------------------------------------------
+
+.PHONY: docker-build
+docker-build: ## Build the development Docker image
+	docker build -t jala-u-ds4-web-components:dev .
+
+.PHONY: docker-test
+docker-test: ## Run the test suite inside the Docker image
+	docker run --rm jala-u-ds4-web-components:dev make test
+
+.PHONY: docker-ci
+docker-ci: ## Run the full CI pipeline inside the Docker image
+	docker run --rm jala-u-ds4-web-components:dev make ci
+
+.PHONY: docker-compose-up
+docker-compose-up: ## Run the CI pipeline via docker compose
+	docker compose run --rm library
+
+.PHONY: docker-clean
+docker-clean: ## Remove the development Docker image
+	docker rmi jala-u-ds4-web-components:dev || true
+
+# ---------------------------------------------------------------------------
 # Publishing
 # ---------------------------------------------------------------------------
 

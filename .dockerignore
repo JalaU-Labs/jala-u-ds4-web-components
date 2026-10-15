@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+build/
+coverage/
+.vite/
+
+# Version control
+.git/
+.gitignore
+.gitattributes
+
+# CI configuration (not needed inside the image)
+.github/
+.gitlab-ci.yml
+
+# Editors
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Env
+.env
+.env.*
+
+# Docs build artifacts
+docs/build/
+
+# Docker meta
+Dockerfile
+.dockerignore
+docker-compose.yml
