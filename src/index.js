@@ -17,3 +17,4 @@
 import './styles/tokens.css';
 
 export { Card } from './components/card/card.js';
+export { Tooltip } from './components/tooltip/tooltip.js';

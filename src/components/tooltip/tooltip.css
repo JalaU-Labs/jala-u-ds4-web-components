@@ -1,0 +1,80 @@
+/**
+ * Tooltip styles.
+ *
+ * The tooltip is appended to document.body and positioned with
+ * position: fixed. Colors and sizes come from design tokens.
+ */
+
+.jc-tooltip {
+  position: fixed;
+  z-index: var(--jc-z-tooltip);
+  display: inline-flex;
+  align-items: center;
+  max-width: var(--jc-tooltip-max-width);
+  padding: var(--jc-tooltip-padding-y) var(--jc-tooltip-padding-x);
+  border-radius: var(--jc-tooltip-radius);
+  background-color: var(--jc-color-text-primary);
+  color: var(--jc-color-text-inverse);
+  font-family: var(--jc-font-family-base);
+  font-size: var(--jc-font-size-sm);
+  line-height: var(--jc-line-height-normal);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--jc-duration-fast) var(--jc-easing-standard);
+  box-sizing: border-box;
+}
+
+.jc-tooltip--visible {
+  opacity: 1;
+}
+
+.jc-tooltip__content {
+  display: inline-block;
+}
+
+/* Arrow ----------------------------------------------------------------- */
+
+.jc-tooltip__arrow {
+  position: absolute;
+  width: var(--jc-tooltip-arrow-size);
+  height: var(--jc-tooltip-arrow-size);
+  background-color: var(--jc-color-text-primary);
+  transform: rotate(45deg);
+}
+
+.jc-tooltip--top .jc-tooltip__arrow {
+  bottom: calc(var(--jc-tooltip-arrow-size) / -2);
+  left: 50%;
+  margin-left: calc(var(--jc-tooltip-arrow-size) / -2);
+}
+
+.jc-tooltip--bottom .jc-tooltip__arrow {
+  top: calc(var(--jc-tooltip-arrow-size) / -2);
+  left: 50%;
+  margin-left: calc(var(--jc-tooltip-arrow-size) / -2);
+}
+
+.jc-tooltip--left .jc-tooltip__arrow {
+  right: calc(var(--jc-tooltip-arrow-size) / -2);
+  top: 50%;
+  margin-top: calc(var(--jc-tooltip-arrow-size) / -2);
+}
+
+.jc-tooltip--right .jc-tooltip__arrow {
+  left: calc(var(--jc-tooltip-arrow-size) / -2);
+  top: 50%;
+  margin-top: calc(var(--jc-tooltip-arrow-size) / -2);
+}
+
+/* Dark mode adjustments ------------------------------------------------ */
+
+@media (prefers-color-scheme: dark) {
+  .jc-tooltip {
+    background-color: var(--jc-color-gray-100);
+    color: var(--jc-color-gray-900);
+  }
+
+  .jc-tooltip__arrow {
+    background-color: var(--jc-color-gray-100);
+  }
+}
