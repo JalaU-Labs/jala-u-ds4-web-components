@@ -54,7 +54,16 @@ describe('Tooltip', () => {
       const target = document.createElement('button');
       const tooltip = new Tooltip({ text: 'Hi' });
       tooltip.attach(target);
-      expect(target.getAttribute('aria-describedby')).toBe(tooltip.element?.id ?? null);
+      expect(target.getAttribute('aria-describedby')).toBe(tooltip.id);
+    });
+
+    it('assigns the same id to the aria-describedby value and the tooltip element', () => {
+      const target = document.createElement('button');
+      mockRect(target, { top: 0, left: 0, right: 10, bottom: 10, width: 10, height: 10 });
+      const tooltip = new Tooltip({ text: 'Hi' });
+      tooltip.attach(target);
+      tooltip.show();
+      expect(target.getAttribute('aria-describedby')).toBe(tooltip.element.id);
     });
 
     it('is idempotent when attaching the same target', () => {

@@ -194,6 +194,19 @@ export class Tooltip {
     return this.#target;
   }
 
+  /**
+   * Returns the unique identifier assigned to this tooltip instance.
+   *
+   * This is the value that gets written to the target's `aria-describedby`
+   * attribute when {@link Tooltip#attach} is called. It is exposed so that
+   * consumers can reference the tooltip from custom ARIA markup.
+   *
+   * @returns {string}
+   */
+  get id() {
+    return this.#id;
+  }
+
   /* ------------------------------------------------------------------ */
   /* Private helpers                                                     */
   /* ------------------------------------------------------------------ */
