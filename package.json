@@ -1,6 +1,6 @@
 {
   "name": "@jalau-labs/jala-u-ds4-web-components",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A small, dependency-free library of reusable web components built with plain HTML, CSS, and JavaScript.",
   "keywords": [
     "web-components",
