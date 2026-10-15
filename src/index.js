@@ -1,5 +1,5 @@
 /**
- * Public entry point for jala-u-ds4-web-components.
+ * Public entry point for @jalau-labs/jala-u-ds4-web-components.
  *
  * Component exports are added here as they are implemented:
  *   - Card    (src/components/card/card.js)
@@ -7,7 +7,7 @@
  *
  * Consumers can import the package as ESM:
  *
- *   import { Card, Tooltip } from 'jala-u-ds4-web-components';
+ *   import { Card, Tooltip } from '@jalau-labs/jala-u-ds4-web-components';
  *
  * or via the UMD bundle in the browser:
  *

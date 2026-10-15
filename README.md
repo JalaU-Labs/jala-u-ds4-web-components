@@ -1,7 +1,7 @@
-# jala-u-ds4-web-components
+# @jalau-labs/jala-u-ds4-web-components
 
-[![npm version](https://img.shields.io/npm/v/jala-u-ds4-web-components.svg?style=flat-square)](https://www.npmjs.com/package/jala-u-ds4-web-components)
-[![npm downloads](https://img.shields.io/npm/dm/jala-u-ds4-web-components.svg?style=flat-square)](https://www.npmjs.com/package/jala-u-ds4-web-components)
+[![npm version](https://img.shields.io/npm/v/@jalau-labs/jala-u-ds4-web-components.svg?style=flat-square)](https://www.npmjs.com/package/@jalau-labs/jala-u-ds4-web-components)
+[![npm downloads](https://img.shields.io/npm/dm/@jalau-labs/jala-u-ds4-web-components.svg?style=flat-square)](https://www.npmjs.com/package/@jalau-labs/jala-u-ds4-web-components)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Node.js version](https://img.shields.io/badge/node-%3E%3D26.5.0-brightgreen.svg?style=flat-square)](https://nodejs.org)
 [![GitHub CI](https://github.com/JalaU-Labs/jala-u-ds4-web-components/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/JalaU-Labs/jala-u-ds4-web-components/actions/workflows/ci.yml)
@@ -50,7 +50,7 @@ The library currently ships two components:
 ## Installation
 
 ```bash
-npm install jala-u-ds4-web-components
+npm install @jalau-labs/jala-u-ds4-web-components
 ```
 
 ## Usage
@@ -58,7 +58,7 @@ npm install jala-u-ds4-web-components
 ### ES modules
 
 ```js
-import { Card, Tooltip } from 'jala-u-ds4-web-components';
+import { Card, Tooltip } from '@jalau-labs/jala-u-ds4-web-components';
 
 const card = new Card({
   title: 'Weekly summary',
@@ -79,9 +79,12 @@ tooltip.attach(document.querySelector('#help-button'));
 ### UMD / browser
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/jala-u-ds4-web-components/dist/style.css" />
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@jalau-labs/jala-u-ds4-web-components/dist/style.css"
+/>
 
-<script src="https://unpkg.com/jala-u-ds4-web-components/dist/index.umd.js"></script>
+<script src="https://unpkg.com/@jalau-labs/jala-u-ds4-web-components/dist/index.umd.cjs"></script>
 <script>
   const { Card, Tooltip } = window.JalaUWebComponents;
   // The API is identical to the ESM build.
@@ -213,7 +216,7 @@ make build
 The build produces:
 
 - `dist/index.js` — ESM bundle.
-- `dist/index.umd.js` — UMD bundle for browsers.
+- `dist/index.umd.cjs` — UMD bundle for browsers.
 - `dist/style.css` — aggregated CSS.
 - Source maps for both bundles.
 
