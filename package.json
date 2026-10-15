@@ -1,0 +1,75 @@
+{
+  "name": "jala-u-ds4-web-components",
+  "version": "0.0.0",
+  "description": "A small, dependency-free library of reusable web components built with plain HTML, CSS, and JavaScript.",
+  "keywords": [
+    "web-components",
+    "components",
+    "ui",
+    "html",
+    "css",
+    "javascript",
+    "vanilla-js",
+    "esm",
+    "umd",
+    "jala-university"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Diego Alejandro Botina",
+    "email": "code.with.botina@gmail.com"
+  },
+  "homepage": "https://github.com/JalaU-Labs/jala-u-ds4-web-components#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JalaU-Labs/jala-u-ds4-web-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JalaU-Labs/jala-u-ds4-web-components/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "unpkg": "./dist/index.umd.cjs",
+  "jsdelivr": "./dist/index.umd.cjs",
+  "style": "./dist/style.css",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs",
+      "default": "./dist/index.js"
+    },
+    "./style.css": "./dist/style.css",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=26.5.0",
+    "npm": ">=12.0.2"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "clean": "rimraf dist coverage",
+    "prepublishOnly": "npm run clean && npm run build && npm test"
+  }
+}
